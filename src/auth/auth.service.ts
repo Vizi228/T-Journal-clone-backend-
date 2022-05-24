@@ -9,7 +9,7 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.userService.findByCond({
@@ -38,7 +38,11 @@ export class AuthService {
 
   async register(dto: CreateUserDto) {
     try {
-      const { password, ...user } = await this.userService.create(dto);
+      const { password, ...user } = await this.userService.create({
+        email: dto.email,
+        fullName: dto.fullName,
+        password: dto.password
+      });
       return {
         ...user,
         token: this.generateJwtToken(user),
