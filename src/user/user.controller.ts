@@ -17,7 +17,7 @@ import { SearchUserDto } from './dto/searchg-user.dto';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Get()
   findAll() {
@@ -27,7 +27,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Get('me')
   getProfile(@Request() req) {
-    return req.user;
+    return this.userService.findById(req.user.id);
   }
 
   @UseGuards(JwtAuthGuard)
