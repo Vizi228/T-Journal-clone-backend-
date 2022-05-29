@@ -14,11 +14,11 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'ec2-3-229-11-55.compute-1.amazonaws.com',
       port: 5432,
-      username: 'postgres',
-      password: 'Unturnet228',
-      database: 'RJournal',
+      username: 'jvpgttekyipjvl',
+      password: 'd8624ed567004f2b98353992b8d7ec44b37a73d4f637e1a6d3ba154579a5284c',
+      database: 'd44fbgrv7ujra4',
       entities: [UserEntity, PostEntity, CommentEntity],
       synchronize: true,
     }),
