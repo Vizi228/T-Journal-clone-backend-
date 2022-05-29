@@ -17,7 +17,7 @@ import { SearchUserDto } from './dto/searchg-user.dto';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Get()
   findAll() {
